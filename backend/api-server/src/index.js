@@ -3,6 +3,7 @@ const http = require("http");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 
+const router = require("./router");
 const app = express();
 
 app.use(morgan("combined"));
@@ -11,6 +12,7 @@ app.use(
     type: "*/*",
   }),
 );
+router(app);
 
 const port = process.env.PORT || 3090;
 const server = http.createServer(app);
