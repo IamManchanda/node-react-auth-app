@@ -1,7 +1,7 @@
+const { signup } = require("./controllers/auth")
+
 const router = (app) => {
-  app.get("/", function homeRoute(request, response, next) {
-    response.send(["bottle", "cap", "challenge"]);
-  });
+  app.post("/signup", signup)
 };
 
 module.exports = router;
