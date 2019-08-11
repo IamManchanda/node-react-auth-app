@@ -10,7 +10,7 @@ exports.signup = (request, response, next) => {
 
   User.findOne(
     { email }, 
-    function handleErrorOnEmailFind(error, existingUser) {
+    function handleOnEmailFind(error, existingUser) {
       if (error) return next(error);
       if (existingUser) {
         return response.status(422).send({
@@ -20,7 +20,7 @@ exports.signup = (request, response, next) => {
       
       const user = new User({ email, password });
       user.save(
-        function handleErrorOnUserSave(error) {
+        function handleOnUserSave(error) {
           if (error) return next(error);
           response.json({ success: true });
         },
