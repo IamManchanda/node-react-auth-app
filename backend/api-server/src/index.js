@@ -8,6 +8,7 @@ const router = require("./router");
 const app = express();
 
 mongoose.connect("mongodb://localhost:auth/auth", { useNewUrlParser: true });
+mongoose.set('useCreateIndex', true);
 
 app.use(morgan("combined"));
 app.use(
