@@ -34,5 +34,18 @@ userSchema.pre(
   },
 );
 
+userSchema.methods.comparePassword = (
+  function comparePassword(candidatePassword, callback) {
+    bcrypt.compare(
+      candidatePassword, 
+      this.password,
+      function name(error, isMatch) {
+        if (error) return callback(error);
+        callback(null, isMatch);
+      }
+    );
+  }
+);
+
 const User = mongoose.model("user", userSchema);
 module.exports = User;

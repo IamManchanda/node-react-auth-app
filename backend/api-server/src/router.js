@@ -1,19 +1,17 @@
 const passport = require("passport");
 
-const { signup } = require("./controllers/auth")
+const { signup, signin } = require("./controllers/auth")
 const passportService = require("./services/passport");
 
-const requireAuth = passport.authenticate(
-  "jwt",
-  {
-    session: false,
-  },
-);
+const passportAuth = (type) => passport.authenticate(type, { session: false });
+const requireAuth = passportAuth("jwt");
+const requireSignin = passportAuth("local");;
 
 const router = (app) => {
   app.get("/", requireAuth, function handleHomeRouteGET(request, response) {
     response.send({ hi: "there" });
   })
+  app.post("/signin", requireSignin, signin)
   app.post("/signup", signup)
 };
 
