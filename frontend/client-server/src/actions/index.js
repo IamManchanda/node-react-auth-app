@@ -5,10 +5,12 @@ export const signup = (formProps, done) => {
   return async function handleSignup(dispatch) {
     try {
       const response = await axios.post("http://localhost:3090/signup", formProps);
+      const token = response.data.token;
       dispatch({
         type: AUTH_USER,
-        payload: response.data.token,
+        payload: token,
       });
+      localStorage.setItem("token", token);
       done();
     } catch (error) {
       dispatch({

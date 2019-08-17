@@ -6,11 +6,18 @@ const NavHeader = class extends Component {
     return (
       <div className="top-bar">
         <div className="top-bar-left">
-          <ul className="dropdown menu" data-dropdown-menu>
+          <ul className="menu">
             <li className="menu-text">Auth App</li>
             <li>
               <Link to="/">Home</Link>
             </li>
+            <li>
+              <Link to="/feature">Feature</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="top-bar-right">
+          <ul className="menu">
             <li>
             <Link to="/signup">Sign Up</Link>
             </li>
@@ -19,9 +26,6 @@ const NavHeader = class extends Component {
             </li>
             <li>
             <Link to="/signout">Sign Out</Link>
-            </li>
-            <li>
-              <Link to="/feature">Feature</Link>
             </li>
           </ul>
         </div>

@@ -11,7 +11,13 @@ import Welcome from "./components/content/welcome.js"
 import Feature from "./components/content/feature.js"
 import Signup from "./components/auth/signup.js"
 
-const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+const initialReducerState = {
+  auth: {
+    authenticated: localStorage.getItem("token"),
+  },
+};
+
+const store = createStore(reducers, initialReducerState, applyMiddleware(reduxThunk));
 const element = (
   <Provider store={ store }>
     <BrowserRouter>
