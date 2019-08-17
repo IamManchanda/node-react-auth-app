@@ -1,9 +1,9 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
 const NavHeader = class extends Component {
   render() {
-    return <Fragment>
+    return (
       <div class="top-bar">
         <div class="top-bar-left">
           <ul class="dropdown menu" data-dropdown-menu>
@@ -26,7 +26,7 @@ const NavHeader = class extends Component {
           </ul>
         </div>
       </div>
-    </Fragment>;
+    );
   }
 };
 
