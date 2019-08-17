@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const NavHeader = class extends Component {
   render() {
     return (
-      <div class="top-bar">
-        <div class="top-bar-left">
-          <ul class="dropdown menu" data-dropdown-menu>
-            <li class="menu-text">Auth App</li>
+      <div className="top-bar">
+        <div className="top-bar-left">
+          <ul className="dropdown menu" data-dropdown-menu>
+            <li className="menu-text">Auth App</li>
             <li>
               <Link to="/">Home</Link>
             </li>
