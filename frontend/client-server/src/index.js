@@ -10,6 +10,7 @@ import App from "./components/app";
 import Welcome from "./components/content/welcome.js"
 import Feature from "./components/content/feature.js"
 import Signup from "./components/auth/signup.js"
+import Signin from "./components/auth/signin.js"
 import Signout from "./components/auth/signout.js"
 
 const initialReducerState = {
@@ -26,6 +27,7 @@ const element = (
         <Route path="/" exact component={ Welcome } />
         <Route path="/feature" exact component={ Feature } />
         <Route path="/signup" exact component={ Signup } />
+        <Route path="/signin" exact component={ Signin } />
         <Route path="/signout" exact component={ Signout } />
       </App>
     </BrowserRouter>
