@@ -8,17 +8,19 @@ import reduxThunk from "redux-thunk";
 import reducers from "./reducers"
 import App from "./components/app";
 import Welcome from "./components/content/welcome.js"
+import Feature from "./components/content/feature.js"
 import Signup from "./components/auth/signup.js"
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 const element = (
   <Provider store={ store }>
-  <BrowserRouter>
-  <App>
-  <Route path="/" exact component={ Welcome } />
-  <Route path="/signup" exact component={ Signup } />
-  </App>
-  </BrowserRouter>
+    <BrowserRouter>
+      <App>
+        <Route path="/" exact component={ Welcome } />
+        <Route path="/signup" exact component={ Signup } />
+        <Route path="/feature" exact component={ Feature } />
+      </App>
+    </BrowserRouter>
   </Provider>
   );
 const root = document.getElementById('root');
