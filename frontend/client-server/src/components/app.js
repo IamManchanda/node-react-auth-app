@@ -3,7 +3,11 @@ import NavHeader from "./nav/header";
 
 const App = ({ children }) => <Fragment>
   <NavHeader />
-  { children }
+  <div className="grid-container fluid">
+    <div className="padding-1">
+      { children }
+    </div>
+  </div>
 </Fragment>;
 
 export default App;
