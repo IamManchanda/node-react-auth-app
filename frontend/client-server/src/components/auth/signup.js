@@ -6,11 +6,14 @@ import * as actions from "../../actions";
 
 const Signup = class extends Component {
   handleFormSubmission = (formProps) => {
-    this.props.signup(formProps);
+    const { signup, history } = this.props;
+    signup(formProps, function handleFormSignup() {
+      history.push("/feature");
+    });
   };
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, errorMessage } = this.props;
 
     return (
       <div className="card">
@@ -19,6 +22,11 @@ const Signup = class extends Component {
         </div>
         <div className="card-section">
           <form onSubmit={ handleSubmit(this.handleFormSubmission) }>
+            { errorMessage ? (
+              <div className="alert callout">
+                <p>{ errorMessage }</p>
+              </div>
+            ) : null }
             <fieldset>
               <label>
                 <span>Email</span>
@@ -39,7 +47,11 @@ const Signup = class extends Component {
   };
 };
 
+const mapStateToProps = (state) => ({
+  errorMessage: state.auth.errorMessage,
+});
+
 export default compose(
-  connect(null, actions),
+  connect(mapStateToProps, actions),
   reduxForm({ form: "signup" }),
 )(Signup);

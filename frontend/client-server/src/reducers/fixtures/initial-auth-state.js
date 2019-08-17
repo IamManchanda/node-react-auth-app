@@ -1,6 +1,6 @@
 const INITIAL_AUTH_STATE = {
   authenticated: "",
-  error: "",
+  errorMessage: "",
 };
 
 export default INITIAL_AUTH_STATE;
